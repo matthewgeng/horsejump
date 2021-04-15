@@ -1,0 +1,595 @@
+
+@-webkit-keyframes fadein {
+    from  { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@-moz-keyframes fadein {
+    from  { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@-o-keyframes fadein {
+    from  { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadein {
+    from   { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#buttonRight{
+    display: none;
+    z-index: 100;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #0090f0;
+    opacity: 0.85;
+    width: 75px;
+    height: 75px;
+}
+
+#buttonLeft{
+    display: none;
+    z-index: 100;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: #0090f0;
+    opacity: 0.85;
+    width: 75px;
+    height: 75px;
+}
+
+#canvasCircle{
+    opacity:0;
+    display: block;
+    position: absolute;
+    z-index: -1;
+
+    -webkit-animation: fadein 2s;
+    -o-animation: fadein 2s;
+    animation: fadein 2s;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+
+#canvasGame{
+    display: block;
+    position: relative;
+}
+
+.visible{
+    visibility: visible;
+}
+
+.un-visible{
+    visibility: hidden;
+}
+
+body {
+    margin:0;
+    overflow: hidden;
+    align-items:center;
+}
+
+
+
+.stop-parent #box {
+    opacity: 0;
+    position: absolute;
+    background: white;
+    color: white;
+    border: 1px solid #1695A3;
+    -webkit-box-shadow: -1px -1px 20px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: -1px -1px 20px 0px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    width: 160px;
+    height: 80px;
+
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transition: .15s ease-out;
+    transition: .15s ease-out;
+
+    -webkit-animation: fadein 1s;
+    -o-animation: fadein 1s;
+    animation: fadein 1s;
+
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    -o-animation-delay: 1s;
+    animation-delay: 1s;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+.stop-parent #stop {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+    z-index: 1000;
+
+    -webkit-transition: .15s ease-out;
+    transition: .15s ease-out;
+
+
+    -webkit-animation: fadein 1s;
+    -o-animation: fadein 1s;
+    animation: fadein 1s;
+
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    -o-animation-delay: 1s;
+    animation-delay: 1s;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+.stop-parent:hover #box {
+    -webkit-transform: rotate(-45deg) scale(1.15);
+    transform: rotate(-45deg) scale(1.15);
+    cursor: pointer;
+
+}
+
+.stop-parent:hover #stop {
+    color: #ff8e00;
+    transform: rotate(-45deg) translate(1px,3px);
+    cursor: pointer;
+
+}
+
+/*inline-block*/
+.stop-parent #box {
+    top: -40px;
+    left: -75px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.stop-parent #stop {
+    font-family: 'Lato', sans-serif;
+
+
+    top: 6px;
+    left: 3px;
+    color: #EB7F00;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    display: inline-block;
+}
+
+#title{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 5rem;
+    opacity: 0;
+    padding-top: 10vh;
+    margin-bottom:auto;
+    margin-top:auto;
+
+    -webkit-animation: fadein 3s;
+    -o-animation: fadein 3s;
+    animation: fadein 3s;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+
+#game-container{
+    display: inline;
+    height: 35rem;
+    width: 25rem;
+    position: absolute;
+    border: 1px solid #1695A3;
+    bottom: 60px;
+}
+
+.shutter-out-horizontal {
+    -webkit-transition: color 300ms;
+    transition: color 300ms;
+    position: relative;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.shutter-out-horizontal:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #2098d1;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 50%;
+    transform-origin: 50%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition: 200ms ease-out;
+    transition: 200ms ease-out;
+}
+
+.shutter-out-horizontal:hover:before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+#instructions{
+    opacity: 0;
+
+    font-family: 'Lato', sans-serif;
+
+    background-color: #f1f1f1;
+    line-height: 10vh;
+    font-size: 30px;
+    margin-top: 10vh;
+
+    -webkit-animation: fadein 1s;
+    -o-animation: fadein 1s;
+    animation: fadein 1s;
+
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    -o-animation-delay: 1s;
+    animation-delay: 1s;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+#instructions:hover span{
+    color:#f1f1f1;
+    -webkit-transition: color 0.25s ease;
+    -moz-transition: color 0.25s ease;
+    -ms-transition: color 0.25s ease;
+    -o-transition: color 0.25s ease;
+    transition: color 0.25s ease;
+    cursor: pointer;
+
+}
+
+#begin{
+    opacity: 0;
+
+    font-family: 'Lato', sans-serif;
+    background-color: #f1f1f1;
+    line-height: 10vh;
+    margin-top: 6vh;
+    font-size: 30px;
+
+    -webkit-animation: fadein 1s;
+    -o-animation: fadein 1s;
+    animation: fadein 1s;
+
+    -webkit-animation-delay: 1.5s;
+    -moz-animation-delay: 1.5s;
+    -o-animation-delay: 1.5s;
+    animation-delay: 1.5s;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+}
+
+#begin:hover span{
+    color:#f1f1f1;
+    -webkit-transition: color 0.25s ease;
+    -moz-transition: color 0.25s ease;
+    -ms-transition: color 0.25s ease;
+    -o-transition: color 0.25s ease;
+    transition: color 0.25s ease;
+    cursor: pointer;
+
+
+}
+
+.container{
+    text-align: center;
+}
+
+#home{
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5em;
+    z-index: 1;
+    position: absolute;
+    left: 8px;
+    cursor: pointer;
+
+
+}
+#home:hover{
+    color: #dc3545;
+}
+
+#score{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    z-index: 1;
+    position: absolute;
+    text-align: center;
+}
+
+#pause {
+    z-index: 10;
+    right: 3px;
+    position: absolute;
+    top:5px;
+    cursor: pointer;
+
+}
+
+#pause:hover{
+    opacity: 0.5;
+}
+
+#pauseMenu{
+    position: absolute;
+    width: 400px;
+    height: 560px;
+    background: rgba(176, 176, 176, 0.75);
+    font-size: 2em;
+    text-align: center;
+    z-index: 10;
+    top: 0;
+    display: none;
+}
+
+#resumeButton{
+    margin-top: 15vh;
+    position: relative;
+}
+
+#resumeText{
+    position: relative;
+    color: #00b900;
+    text-decoration: none;
+}
+
+#resumeText:hover{
+    cursor: pointer;
+
+
+    color: #00b900;
+}
+
+#resumeText:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    bottom: 0;
+    left: 0;
+
+    background-color: #f1f1f1;
+
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0);
+
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -ms-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#resumeText:hover:before{
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+#restartButton{
+    margin-top: 12vh;
+    position: relative;
+}
+
+#restartText{
+    position: relative;
+    color: #000;
+    text-decoration: none;
+}
+
+#restartText:hover{
+    cursor: pointer;
+
+    color: #000
+}
+
+#restartText:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    bottom: 0;
+    left: 0;
+
+    background-color: #f1f1f1;
+
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0);
+
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -ms-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#restartText:hover:before{
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+
+#homeButton{
+    margin-top: 5vh;
+    position: relative;
+}
+
+#homeText{
+    position: relative;
+    color: #ACF0F2;
+    text-decoration: none;
+}
+
+#homeText:hover{
+    cursor: pointer;
+
+
+    color: #ACF0F2;
+}
+
+#homeText:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    bottom: 0;
+    left: 0;
+
+    background-color: #f1f1f1;
+
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0);
+
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -ms-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#homeText:hover:before{
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.heading{
+    position: relative;
+    margin-top: 15vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#creditsContainer{
+    font-family: 'Montserrat', sans-serif;
+    padding: 2rem;
+}
+#instructionsPage{
+
+    z-index: 10000;
+    display: none;
+}
+
+.carousel-inner img {
+    height: 560px;
+    margin: auto;
+}
+
+#instructionsHome{
+    position: absolute;
+    display: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    bottom: 70px;
+    left: 10px;
+}
+
+#instructionsStart{
+    position: absolute;
+    display: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    bottom: 70px;
+    right: 10px;
+}
+
+.carousel-control-prev{
+    background-color: black;
+}
+
+.carousel-control-next{
+    background-color: black;
+}
+
+#black{
+    color: black;
+}
+
+#creditsPage{
+    position: absolute;
+    top:0;
+    z-index: 10000;
+    display: none;
+    background: rgb(176, 176, 176);
+}
+
+#footer {
+    background-color: #7f8c8d;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+
+    -webkit-animation: fadein 1s;
+    -o-animation: fadein 1s;
+    animation: fadein 1s;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+#footer span:hover{
+    opacity: 0.5;
+}
